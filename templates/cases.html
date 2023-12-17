@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COVID-19 Cases</title>
+</head>
+<body>
+    <h2>COVID-19 Cases</h2>
+    <p>Debug: {{ cases }}</p>
+
+    <table border="1">
+        <tr>
+            <th>State</th>
+            <th>Date of Record</th>
+            <th>Samples Collected</th>
+            <th>Deaths</th>
+            <th>Positive Cases</th>
+            <th>Negative Cases</th>
+            <th>Discharges</th>
+        </tr>
+        {% for case in cases %}
+        <tr>
+            <td>{{ case.State_Name }}</td>
+            <td>{{ case.Date_of_Record }}</td>
+            <td>{{ case.No_of_Samples }}</td>
+            <td>{{ case.No_of_Deaths }}</td>
+            <td>{{ case.No_of_Positive }}</td>
+            <td>{{ case.No_of_Negative }}</td>
+            <td>{{ case.No_of_Discharge }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
