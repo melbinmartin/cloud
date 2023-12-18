@@ -5,13 +5,14 @@
 </head>
 <body>
     <h2>Enter Student Details</h2>
-    <form action="/submit" method="post">
+    <form action="/submit" method="post" enctype="multipart/form-data">
         <p>Student ID: <input type="text" name="Student_ID" /></p>
         <p>Name: <input type="text" name="Name" /></p>
         <p>Enrollment Date: <input type="date" name="Enrollment_Date" /></p>
         <p>Course: <input type="text" name="Course" /></p>
         <p>Email: <input type="email" name="Email" /></p>
         <p>Phone Number: <input type="tel" name="Phone_Number" /></p>
+        <p>Profile Picture: <input type="file" name="Profile_Picture" accept="image/*" /></p>
         <p><input type="submit" /></p>
     </form>
     <a href="/students">View Students</a>
