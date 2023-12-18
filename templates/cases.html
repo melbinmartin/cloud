@@ -13,6 +13,7 @@
             <th>Course</th>
             <th>Email</th>
             <th>Phone Number</th>
+            <th>Profile Picture</th>
         </tr>
         {% for student in students %}
         <tr>
@@ -22,6 +23,13 @@
             <td>{{ student.Course }}</td>
             <td>{{ student.Email }}</td>
             <td>{{ student.Phone_Number }}</td>
+            <td>
+                {% if student.Profile_Picture_Path %}
+                    <img src="{{ student.Profile_Picture_Path }}" alt="Profile Picture" height="100">
+                {% else %}
+                    No Image
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>
