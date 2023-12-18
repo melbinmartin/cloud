@@ -19,7 +19,7 @@ def get_db_connection():
 # Route for the index page
 @app.route('/')
 def index():
-    return render_template('student_entry.html')
+    return render_template('index.html')
 
 # Route to handle student data submission
 @app.route('/submit', methods=['POST'])
@@ -56,7 +56,7 @@ def students():
     cursor.close()
     conn.close()
 
-    return render_template('view_students.html', students=rows)
+    return render_template('cases.html', students=rows)
 
 # Main function to run the Flask application
 if __name__ == "__main__":
