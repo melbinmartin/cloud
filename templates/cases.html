@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>COVID-19 Cases</title>
+    <title>View Students</title>
 </head>
 <body>
-    <h2>COVID-19 Cases</h2>
-    <p>Debug: {{ cases }}</p>
-
+    <h2>Students List</h2>
     <table border="1">
         <tr>
-            <th>State</th>
-            <th>Date of Record</th>
-            <th>Samples Collected</th>
-            <th>Deaths</th>
-            <th>Positive Cases</th>
-            <th>Negative Cases</th>
-            <th>Discharges</th>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Enrollment Date</th>
+            <th>Course</th>
+            <th>Email</th>
+            <th>Phone Number</th>
         </tr>
-        {% for case in cases %}
+        {% for student in students %}
         <tr>
-            <td>{{ case.State_Name }}</td>
-            <td>{{ case.Date_of_Record }}</td>
-            <td>{{ case.No_of_Samples }}</td>
-            <td>{{ case.No_of_Deaths }}</td>
-            <td>{{ case.No_of_Positive }}</td>
-            <td>{{ case.No_of_Negative }}</td>
-            <td>{{ case.No_of_Discharge }}</td>
+            <td>{{ student.Student_ID }}</td>
+            <td>{{ student.Name }}</td>
+            <td>{{ student.Enrollment_Date }}</td>
+            <td>{{ student.Course }}</td>
+            <td>{{ student.Email }}</td>
+            <td>{{ student.Phone_Number }}</td>
         </tr>
         {% endfor %}
     </table>
