@@ -8,6 +8,14 @@ app.config['MYSQL_USER'] = 'admin'
 app.config['MYSQL_PASSWORD'] = '12345678'
 app.config['MYSQL_DB'] = 'Studentdatabase'
 
+UPLOAD_FOLDER = '/path/to/the/uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 # Function to connect to the database
 def get_db_connection():
     return pymysql.connect(host=app.config['MYSQL_HOST'],
@@ -31,12 +39,22 @@ def submit():
         course = request.form['Course']
         email = request.form['Email']
         phone_number = request.form['Phone_Number']
-        
-        # Validate received values
+
+        # Default file path if no file is uploaded
+        file_path = None
+
+        # Handle the uploaded file
+        if 'Profile_Picture' in request.files:
+            file = request.files['Profile_Picture']
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(file_path)
+
         if student_id and name and enrollment_date and course and email and phone_number:
             conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute("INSERT INTO Student_Details(Student_ID, Name, Enrollment_Date, Course, Email, Phone_Number) VALUES(%s, %s, %s, %s, %s, %s)", (student_id, name, enrollment_date, course, email, phone_number))
+            cursor.execute("INSERT INTO Student_Details(Student_ID, Name, Enrollment_Date, Course, Email, Phone_Number, Profile_Picture_Path) VALUES(%s, %s, %s, %s, %s, %s, %s)", (student_id, name, enrollment_date, course, email, phone_number, file_path))
             conn.commit()
             cursor.close()
             conn.close()
