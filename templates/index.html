@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>COVID-19 Case Entry</title>
+    <title>Student Entry</title>
 </head>
 <body>
-    <h2>Enter COVID-19 Case Details</h2>
+    <h2>Enter Student Details</h2>
     <form action="/submit" method="post">
-        <p>State: <input type="text" name="State_Name" /></p>
-        <p>Date: <input type="date" name="Date_of_Record" /></p>
-        <p>Samples Collected: <input type="number" name="No_of_Samples" /></p>
-        <p>Deaths: <input type="number" name="No_of_Deaths" /></p>
-        <p>Positive Cases: <input type="number" name="No_of_Positive" /></p>
-        <p>Negative Cases: <input type="number" name="No_of_Negative" /></p>
-        <p>Discharges: <input type="number" name="No_of_Discharge" /></p>
+        <p>Student ID: <input type="text" name="Student_ID" /></p>
+        <p>Name: <input type="text" name="Name" /></p>
+        <p>Enrollment Date: <input type="date" name="Enrollment_Date" /></p>
+        <p>Course: <input type="text" name="Course" /></p>
+        <p>Email: <input type="email" name="Email" /></p>
+        <p>Phone Number: <input type="tel" name="Phone_Number" /></p>
         <p><input type="submit" /></p>
     </form>
-    <a href="/cases">View Cases</a>
+    <a href="/students">View Students</a>
 </body>
 </html>
