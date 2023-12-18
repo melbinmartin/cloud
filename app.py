@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 import pymysql.cursors
-
+from werkzeug.utils import secure_filename 
+import os
 # Flask application configuration
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'database-2.cqjks2qufaje.us-east-1.rds.amazonaws.com'
