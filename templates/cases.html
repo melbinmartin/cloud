@@ -25,7 +25,8 @@
             <td>{{ student.Phone_Number }}</td>
             <td>
                 {% if student.Profile_Picture_Path %}
-                    <img src="{{ student.Profile_Picture_Path }}" alt="Profile Picture" height="100">
+                    <img src="{{ url_for('static', filename='uploads/' + student.Profile_Picture_Path) }}" alt="Profile Picture" height="100">
+
                 {% else %}
                     No Image
                 {% endif %}
